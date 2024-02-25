@@ -1,6 +1,8 @@
 ﻿
 
 
+using Intro.Business;
+using Intro.DataAccess.Concretes;
 using Intro.Entities;
 
 IndividualCustomer customer1 = new()
@@ -38,6 +40,23 @@ CorporateCustomer customer4 = new()
 };
 
 
+
+CourseManager courseManager = new(new EfCourseDal());
+
+List<Course> courses = courseManager.GetAll(); 
+
+for(int i = 0; i < courses.Count; i++)
+{
+    Console.WriteLine(courses[i].Name + " / " + courses[i].Price);
+}
+
+
+
+
+
+
+
+/*
 BaseCustomer[] customers = [ customer1, customer2, 
                              customer3, customer4 ];
 
@@ -50,3 +69,4 @@ foreach (BaseCustomer customer in customers)
 }
 
 
+*/
